@@ -15,4 +15,14 @@
   ```
 4. source .bash_profile  // 载入更新后就可以使用 ll 了
 
-
+> 注意：上面的方式如果打开新终端，ll命令失效。
+---
+> 下面的方式可以全局
+1. cd ~/
+2. touch .zshrc // 没有就创建(有则忽略)
+3. open -e .zshrc
+  ```
+  source ~/.bash_profile  // 在.zshrc文件中加入该行
+  ```
+4. source .zshrc
+> 这样每次打开新的终端就可以使用ll命令了。
