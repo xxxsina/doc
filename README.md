@@ -14,3 +14,5 @@
    alias ll='ls -alF'   // 然后在.bash_profile文件中添加这一句，保存退出
   ```
 4. source .bash_profile  // 载入更新后就可以使用 ll 了
+
+
