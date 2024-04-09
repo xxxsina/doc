@@ -1,8 +1,8 @@
 ## Docker 命令
 
 #### 启动容器
-```angular2html
-docker start [name]
+```
+docker start <container_name>
 ```
 #### 查看运行的容器
 ``` 
@@ -13,8 +13,8 @@ docker logs <container_id_or_name> // 替换 <container_id_or_name> 为你想要
 docker attach <container_id_or_name> // 看容器的实时输出
 ```
 #### 停止容易
-```angular2html
-docker stop [name]
+```
+docker stop <container_name>
 ```
 #### 删除某容器
 ```
