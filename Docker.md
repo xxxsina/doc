@@ -1,20 +1,43 @@
 ## Docker 命令
+
+#### 启动容器
+```angular2html
+docker start [name]
+```
+#### 查看运行的容器
 ``` 
-//删除某容器
-docker rm xname
-//启动容器
-docker start xname
-//停止容易
-docker stop xname
-//通过镜像的id来删除指定镜像
-docker rmi 镜像id
-//删除所有镜像
+docker ps   // 查看正在运行的容器
+docker ps -l // 查看正在运行的容器的详细信息
+docker ps -a // 查看所有容器
+docker logs <container_id_or_name> // 替换 <container_id_or_name> 为你想要查看日志的容器ID或名称
+docker attach <container_id_or_name> // 看容器的实时输出
+```
+#### 停止容易
+```angular2html
+docker stop [name]
+```
+#### 删除某容器
+```
+docker rm <container_name>
+```
+#### 通过镜像的id来删除指定镜像
+```
+docker rmi <container_id>
+```
+#### 删除所有镜像
+```
 docker rmi $(docker images -q)
-//杀死所有正在运行的容器
+```
+#### 杀死所有正在运行的容器
+```
 docker kill $(docker ps -a -q)
-//删除所有已经停止的容器
+```
+#### 删除所有已经停止的容器
+```
 docker rm $(docker ps -a -q)
-//宿主机重启自动启动容器
+```
+#### 宿主机重启自动启动容器
+```
 docker container update --restart=always php72
 docker container update --restart=always mysql57
 docker container update --restart=always nginx
