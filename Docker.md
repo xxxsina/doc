@@ -2,7 +2,12 @@
 
 #### 启动容器
 ```
-docker start <container_name>
+docker run -it [ubuntu] /bin/bash   // 启动一个新的容器
+docker start [OPTIONS] CONTAINER [CONTAINER...] // 启动一个或多个已经被停止的容器
+例：docker start myrunoob 或 docker start b750bbbcfd88
+
+// 在大部分的场景下，我们希望 docker 的服务是在后台运行的，我们可以过 -d 指定容器的运行模式。
+docker run -itd --name ubuntu-test ubuntu /bin/bash
 ```
 #### 查看运行的容器
 ``` 
@@ -11,10 +16,17 @@ docker ps -l // 查看正在运行的容器的详细信息
 docker ps -a // 查看所有容器
 docker logs <container_id_or_name> // 替换 <container_id_or_name> 为你想要查看日志的容器ID或名称
 docker attach <container_id_or_name> // 看容器的实时输出
+docker top <container_id_or_name> // 查看容器内部运行的进程
 ```
-#### 停止容易
+#### 停止容器
 ```
-docker stop <container_name>
+docker stop [OPTIONS] CONTAINER [CONTAINER...] // 停止一个运行中的容器
+例：docker stop myrunoob 即 docker stop <container_id>
+```
+#### 重启容器
+```
+docker restart [OPTIONS] CONTAINER [CONTAINER...] // 重启容器
+例：docker restart myrunoob 即 docker restart <container_id>
 ```
 #### 删除某容器
 ```
@@ -42,7 +54,21 @@ docker container update --restart=always php72
 docker container update --restart=always mysql57
 docker container update --restart=always nginx
 docker container update --restart=always redis
+```
+#### 导出和导入容器
+```
+// 如果要导出本地某个容器，可以使用 docker export 命令
+docker export <container_id> > <ubuntu.tar> 
 
+// 可以使用 docker import 从容器快照文件中再导入为镜像，以下实例将快照文件 ubuntu.tar 导入到镜像 test/ubuntu:v1:
+cat docker/ubuntu.tar | docker import - test/ubuntu:v1
+
+// 此外，也可以通过指定 URL 或者某个目录来导入，例如
+docker import http://example.com/exampleimage.tgz example/imagerepo
+```
+#### 网络端口的快捷方式
+```
+docker port <container_id>
 ```
 ### Docker Mysql
 ``` 
