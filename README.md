@@ -27,9 +27,9 @@
 4. source .zshrc
 > 这样每次打开新的终端就可以使用ll命令了。
 
-#### 尾声
-
 #### macos host修改
 1. sudo vim /etc/hosts
 2. 输入密码开始编辑
 3. 保存即可
+
+#### 尾声
