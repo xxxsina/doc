@@ -22,5 +22,5 @@
     ```
 5. 显示硬件时间
     ```angular2html
-        hwclock --show
+        hwclock --show
     ```
